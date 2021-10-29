@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue-slide</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+    <body>
+      <header></header>
+      <main>
+
+
+        <div class="container" id="app">
+
+
+
+
+          <!-- Container a sinistra -->
+         
+
+
+
+
+          <div class="col-9 container-img-left">
+
+
+
+          <div v-for="(item , index) of listimg" class="container-img" :class="{ 'opacityuno': index === 0 }">
+            <div class="imgs-left">
+            <img v-bind:src="item.imgpass" alt="item.imgpass"/>
+            </div>
+            <div class="text">
+            <h1>{{item.title}}</h1>
+            <p>
+            {{item.text}}
+            </p>
+            </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- Container a destra -->
+          <div class="col-3 container-img-right">
+
+
+
+
+            <div v-for="(item , index) of listimg" class="imgs-right">
+              <img class = "select-overlay" :class="{ 'overlay': index === 0 }" v-bind:src="item.imgpass" v-bind:alt="'img-right-' + item.imgpass" />
+              </div>
+
+
+
+            <i class="fas fa-chevron-circle-up fa-chevron-circle-up-custom"></i>
+            <i class="fas fa-chevron-circle-up fa-chevron-circle-down-custom"></i>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
+      <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>
