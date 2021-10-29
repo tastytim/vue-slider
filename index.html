@@ -36,7 +36,7 @@
 
 
 
-          <div v-for="(item , index) of listimg" class="container-img" :class="{ 'opacityuno': index === 0 }">
+          <div v-for="(item , index) of listimg" class="container-img" :class="index === imgActive ? 'opacityuno' : ''">
             <div class="imgs-left">
             <img v-bind:src="item.imgpass" alt="item.imgpass"/>
             </div>
@@ -59,13 +59,13 @@
 
 
             <div v-for="(item , index) of listimg" class="imgs-right">
-              <img class = "select-overlay" :class="{ 'overlay': index === 0 }" v-bind:src="item.imgpass" v-bind:alt="'img-right-' + item.imgpass" />
+              <img class = "select-overlay" :class="index === imgActive ? 'overlay' : ''" v-bind:src="item.imgpass" v-bind:alt="'img-right-' + item.imgpass" />
               </div>
 
 
 
-            <i class="fas fa-chevron-circle-up fa-chevron-circle-up-custom"></i>
-            <i class="fas fa-chevron-circle-up fa-chevron-circle-down-custom"></i>
+            <i v-on:click= "pressUp" class="fas fa-chevron-circle-up fa-chevron-circle-up-custom"></i>
+            <i v-on:click= "pressDown" class="fas fa-chevron-circle-up fa-chevron-circle-down-custom"></i>
           </div>
         </div>
       </main>

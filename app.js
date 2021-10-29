@@ -5,6 +5,7 @@ Vue.config.devtools = true;
 const vueApp = new Vue({
   el: "#app",
   data:{
+
     listimg : [
       {
         imgpass : "img/01.jpg",
@@ -31,10 +32,25 @@ const vueApp = new Vue({
         title : "Paradise",
         text : "Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam."
       }
-    ]
+    ],
+    imgActive : 0
   },
   methods:{
-      
+      pressUp : function(){
+        if(this.imgActive == 0){
+          this.imgActive = 4;
+        }else{
+          this.imgActive--;
+        }
+         
+      },
+      pressDown : function(){
+        if(this.imgActive == 4){
+          this.imgActive = 0;
+        }else{
+          this.imgActive++;
+        }
+      }
   }
 });
 
