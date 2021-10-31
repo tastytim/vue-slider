@@ -3,7 +3,7 @@
   <head>
     <title>Vue-slide</title>
     <link rel="stylesheet" href="css/styles.css" />
-    
+
     <!-- Fontawesome -->
     <link
       rel="stylesheet"
@@ -16,60 +16,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   </head>
-    <body>
-      <header></header>
-      <main>
+  <body>
+    <header></header>
+    <main>
+      <div class="container" id="app">
+        <!-- Container a sinistra -->
 
-
-        <div class="container" id="app">
-
-
-
-
-          <!-- Container a sinistra -->
-         
-
-
-
-
-          <div class="col-9 container-img-left">
-
-
-
-          <div v-for="(item , index) of listimg" class="container-img" :class="index === imgActive ? 'opacityuno' : ''">
+        <div class="col-9 container-img-left">
+          <div
+            @mouseover="isHover = true"
+            @mouseleave="isHover = false"
+            v-for="(item , index) of listimg"
+            class="container-img"
+            :class="index === imgActive ? 'opacityuno' : ''"
+          >
             <div class="imgs-left">
-            <img v-bind:src="item.imgpass" alt="item.imgpass"/>
+              <img v-bind:src="item.imgpass" alt="item.imgpass" />
             </div>
             <div class="text">
-            <h1>{{item.title}}</h1>
-            <p>
-            {{item.text}}
-            </p>
+              <h1>{{item.title}}</h1>
+              <p>{{item.text}}</p>
             </div>
-            </div>
-          </div>
-
-
-
-
-          <!-- Container a destra -->
-          <div class="col-3 container-img-right">
-
-
-
-
-            <div v-for="(item , index) of listimg" class="imgs-right">
-              <img class = "select-overlay" :class="index === imgActive ? 'overlay' : ''" v-bind:src="item.imgpass" v-bind:alt="'img-right-' + item.imgpass" />
-              </div>
-
-
-
-            <i v-on:click= "pressUp" class="fas fa-chevron-circle-up fa-chevron-circle-up-custom"></i>
-            <i v-on:click= "pressDown" class="fas fa-chevron-circle-up fa-chevron-circle-down-custom"></i>
           </div>
         </div>
-      </main>
-      <footer></footer>
-      <script type="text/javascript" src="app.js"></script>
-    </body>
+
+        <!-- Container a destra -->
+        <div class="col-3 container-img-right">
+          <div v-for="(item , index) of listimg" class="imgs-right">
+            <img
+              class="select-overlay"
+              :class="index === imgActive ? 'overlay' : ''"
+              v-bind:src="item.imgpass"
+              v-bind:alt="'img-right-' + item.imgpass"
+            />
+          </div>
+
+          <i
+          v-on:click="pressUp"
+            class="fas fa-chevron-circle-up fa-chevron-circle-up-custom"
+          ></i>
+          <i
+            v-on:click="pressDown"
+            class="fas fa-chevron-circle-up fa-chevron-circle-down-custom"
+          ></i>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
 </html>
